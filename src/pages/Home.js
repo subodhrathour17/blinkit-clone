@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Api_Url } from "../constant";
-import { Link } from "react-router-dom";
-import ProductsDetails from "../component/Product";
+
 import Product from "../component/Product";
 import NavBar from "../component/NavBar";
 
