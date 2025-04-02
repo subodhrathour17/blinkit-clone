@@ -13,19 +13,20 @@ const Product = ({ products, addToCart }) => {
         margin: 10,
       }}
     >
-      <Link to={`/product/${products.id}`}>
-        <img
-          src={products.image}
-          alt={products.tittle}
-          style={{ width: 100, height: 100 }}
-        />
-        <h4>{products.tittle}</h4>
-      </Link>
+      <img
+        src={products?.image}
+        alt={products?.tittle}
+        style={{ width: 100, height: 100 }}
+      />
+      <h4>{products?.tittle}</h4>
+
       <p>
         {"₹"}
-        {products.price}
+        {products?.price}
       </p>
-      <button onClick={() => addToCart(products)}>Add to Cart</button>
+      <button onClick={() => addToCart(products)} style={{ cursor: "pointer" }}>
+        Add to Cart
+      </button>
     </div>
   );
 };

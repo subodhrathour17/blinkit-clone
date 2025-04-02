@@ -19,8 +19,8 @@ function Home({ addToCart }) {
       <NavBar />
       <h2>Products</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {products.map((item) => (
-          <Product key={item.id} products={item} addToCart={addToCart} />
+        {products?.map((item) => (
+          <Product key={item?.id} products={item} addToCart={addToCart} />
         ))}
       </div>
     </div>

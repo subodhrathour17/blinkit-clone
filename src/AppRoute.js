@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-
 import AddToCart from "./component/AddToCart";
 
 function AppRoute() {

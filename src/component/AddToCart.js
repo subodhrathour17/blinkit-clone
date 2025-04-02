@@ -5,20 +5,20 @@ function AddToCart({ cart, udateCart, removeCart, checkout }) {
 
   function calculateTotalPrice() {
     const totalPrice = cart
-      .map((item) => item.price * item.quantity)
-      .reduce((a, b) => a + b, 0);
+      ?.map((item) => item.price * item.quantity)
+      ?.reduce((a, b) => a + b, 0);
     return totalPrice.toFixed(2);
   }
   calculateTotalPrice();
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <h1>Cart</h1>
-      {cart.length === 0 ? (
+      {cart?.length === 0 ? (
         <p>Cart is empty</p>
       ) : (
-        cart.map((item) => (
+        cart?.map((item) => (
           <div
-            key={item.id}
+            key={item?.id}
             style={{
               display: "flex",
               alignItems: "center",
@@ -29,13 +29,19 @@ function AddToCart({ cart, udateCart, removeCart, checkout }) {
               margin: 10,
             }}
           >
-            <img src={item.image} alt='' style={{ width: 100, height: 100 }} />
-            <p>Price: {item.price}</p>
-            <p>Quantity: {item.quantity}</p>
-            <button onClick={() => udateCart(item.id, 1)}>+</button>
+            <img src={item?.image} alt='' style={{ width: 100, height: 100 }} />
+            <p>Price: {item?.price}</p>
+            <p>Quantity: {item?.quantity}</p>
             <button
-              onClick={() => removeCart(item.id, 1)}
-              disabled={item.quantity === 1}
+              style={{ cursor: "pointer" }}
+              onClick={() => udateCart(item?.id, 1)}
+            >
+              +
+            </button>
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => removeCart(item?.id, 1)}
+              disabled={item?.quantity === 1}
             >
               -
             </button>
@@ -44,8 +50,8 @@ function AddToCart({ cart, udateCart, removeCart, checkout }) {
       )}
       <div>
         <p>{calculateTotalPrice()}</p>
-        <button onClick={() => checkout()}>
-          {cart.length === 0 ? "Add Item" : "Pay"}
+        <button onClick={() => checkout()} style={{ cursor: "pointer" }}>
+          {cart?.length === 0 ? "Add Item" : "Pay"}
         </button>
       </div>
     </div>
